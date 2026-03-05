@@ -20,7 +20,7 @@ const runtimeConfig: AppConfig = {
 
 
 export const appConfig: ApplicationConfig = {
-  providers: [
+  providers: [                                // like the dependecy-injection container collection
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes),
     provideHttpClient(
@@ -30,7 +30,7 @@ export const appConfig: ApplicationConfig = {
       ])
     ),
     {
-      provide: APP_CONFIG,          
+      provide: APP_CONFIG,                    // register the token defined in 'app-config.token.ts' file   
       useValue: runtimeConfig
     }
   ]

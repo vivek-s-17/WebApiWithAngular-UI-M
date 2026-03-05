@@ -30,7 +30,7 @@ export class ApiBaseService {
 
   constructor(
     private readonly http: HttpClient,
-    @Inject(APP_CONFIG) private readonly config: AppConfig
+    @Inject(APP_CONFIG) private readonly config: AppConfig          // get the injected token from 'app-config.token.ts'
   ) {
     this.baseUrl = config.apiBaseUrl;
   }
