@@ -488,3 +488,69 @@ STEPS:
 7. Run
 
 ---
+
+
+## Step 16: Define the Category-Edit Component
+
+### GOAL:
+
+1. Read categoryId from the route
+2️. Call the API to load existing data of the Category to be edited
+3. Populate the typed reactive form
+4. Submit updates using CategoryUpdateModel
+   - Ensure that RowVersion is sent back to the API on update, to handle concurrency
+   - Handle 409 Conflict (concurrency errors)
+5. Redirect to the Category List on success
+
+
+### Generate the component files:
+
+```
+   > ng generate component features/categories/components/category-edit --standalone
+
+   OR
+
+   > ng g c features/categories/components/category-edit --standalone
+```
+
+Then, rename the generated files to add the `.component` suffix:
+  - `src/app/features/categories/components/category-edit/category-edit.component.spec.ts`
+  - `src/app/features/categories/components/category-edit/category-edit.component.ts`
+  - `src/app/features/categories/components/category-edit/category-edit.component.css`
+  - `src/app/features/categories/components/category-edit/category-edit.component.html`
+
+Don't forget to update the references in the `category-edit.component.ts` file:
+```
+    templateUrl: './category-edit.component.html',
+    styleUrl: './category-edit.component.css'
+```
+and in the reference in the `category-edit.component.spec.ts` file:
+```
+    import { CategoryEdit } from './category-edit.component';
+```
+
+Next, check if the generated component builds and tests properly
+```
+    > ng build
+    > ng test
+    > ng serve
+```
+
+### Next, we will implement the component logic and UI.
+
+STEPS:
+1. Create the `category-edit.form.ts` file, and define the Typed Reactive Form in it.
+2. Implement the component logic in the `category-edit.component.ts` file
+3. Implement the component UI in the `category-edit.component.html` file
+4. Customize the UI with CSS in the `category-edit.component.css` file
+5. Define the tests in the `category-edit.component.spec.ts` file
+6. Build
+7. Run
+
+---
+
+
+## Step 17: Define the Category-Delete Component
+
+
+---
