@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Component } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 
@@ -8,6 +9,16 @@ import { vi } from 'vitest';
 import { CategoryDeleteComponent } from './category-delete.component';
 import { CategoryService } from '../../services/category.service';
 import { CategoryReadModel } from '../../models/category-read.model';
+
+
+/**
+ * A dummy component used only for router testing.
+ */
+@Component({
+    template: ''
+})
+class DummyComponent { }
+
 
 
 /**
@@ -79,9 +90,10 @@ describe('CategoryDeleteComponent', () => {
 
             providers: [
 
-                // Router provider is required because the component
-                // uses router navigation.
-                provideRouter([]),
+                // Router provider is required because the component uses router navigation.
+                provideRouter([
+                    { path: 'categories', component: DummyComponent }
+                ]),
 
                 // Replace the real service with the mock
                 { provide: CategoryService, useValue: categoryServiceMock },
